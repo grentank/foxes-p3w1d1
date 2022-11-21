@@ -1,10 +1,8 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React from 'react';
 import { Container } from 'reactstrap';
-import axios from 'axios';
 import MyForm from './components/MyForm';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PostList from './components/PostList';
-import { PostContext } from './contexts/PostContext';
 
 function App() {
   // const [posts, setPosts] = useState([]);

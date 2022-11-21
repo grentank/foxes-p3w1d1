@@ -3,10 +3,10 @@ import {
   Button,
   Col, Form, Input, Label, Row,
 } from 'reactstrap';
-import { PostContext } from '../../contexts/PostContext';
+import { CallbackContext } from '../../contexts/PostContext';
 
 export default function MyForm() {
-  const { submitHandler } = useContext(PostContext);
+  const { submitHandler } = useContext(CallbackContext);
   const [input, setInput] = useState('');
   return (
     <Form onSubmit={(e) => {

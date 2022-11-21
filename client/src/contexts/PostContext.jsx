@@ -1,9 +1,11 @@
 import axios from 'axios';
 import React, {
   createContext, useCallback, useEffect, useState,
+  useMemo,
 } from 'react';
 
 const PostContext = createContext();
+const CallbackContext = createContext();
 
 function PostContextProvider({ children }) {
   const [posts, setPosts] = useState([]);
@@ -26,14 +28,17 @@ function PostContextProvider({ children }) {
       .then(() => setPosts((prev) => prev.filter((post) => post.id !== id)))
       .catch(console.log);
   }, []);
+
+  const handlersObject = useMemo(() => ({
+    deleteHandler, setPosts, submitHandler,
+  }), []);
   return (
-    <PostContext.Provider value={{
-      deleteHandler, posts, setPosts, submitHandler,
-    }}
-    >
-      {children}
+    <PostContext.Provider value={posts}>
+      <CallbackContext.Provider value={handlersObject}>
+        {children}
+      </CallbackContext.Provider>
     </PostContext.Provider>
   );
 }
 
-export { PostContextProvider, PostContext };
+export { PostContextProvider, PostContext, CallbackContext };

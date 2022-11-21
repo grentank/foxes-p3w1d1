@@ -4,7 +4,7 @@ import { PostContext } from '../../contexts/PostContext';
 import PostItem from '../PostItem';
 
 export default function PostList() {
-  const { posts } = useContext(PostContext);
+  const posts = useContext(PostContext);
   return (
     <Row>
       <Col>

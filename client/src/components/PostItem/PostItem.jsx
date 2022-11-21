@@ -1,9 +1,9 @@
 import React, { memo, useContext } from 'react';
 import { Button, ListGroupItem } from 'reactstrap';
-import { PostContext } from '../../contexts/PostContext';
+import { CallbackContext } from '../../contexts/PostContext';
 
 function PostItem({ post, id }) {
-  const { deleteHandler } = useContext(PostContext);
+  const { deleteHandler } = useContext(CallbackContext);
   console.log('render');
   return (
     <ListGroupItem>
